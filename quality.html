@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>คุณภาพและมาตรฐานน้ำมันปาล์ม — Palm Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4fff8;      /* สีเขียวอ่อนเกือบขาว */
+  --accent:#43a047;
+  --accent-dark:#2e7d32;
+  --muted:#556b2f;
+  --card:#ffffff;
+  font-family:'Kanit',sans-serif;
+}
+
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:#222;scroll-behavior:smooth;}
+.container{max-width:1200px;margin:0 auto;padding:24px;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#a7e57a,#2e7d32);display:grid;place-items:center;box-shadow:0 6px 18px rgba(46,125,50,0.12)}
+.logo svg{width:36px;height:36px}
+.brand h1{margin:0;font-size:18px;color:var(--accent-dark)}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+nav a{text-decoration:none;padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600;transition:0.3s;}
+nav a.primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(46,125,50,0.18)}
+nav a:hover{color:var(--accent-dark)}
+.hero{margin-top:28px;display:flex;flex-direction:column;align-items:center;text-align:center;animation:fadeIn 1s ease;}
+.hero h2{font-size:36px;color:var(--accent-dark);margin-bottom:12px;}
+.hero p{font-size:18px;color:#3a563f;line-height:1.8;margin-bottom:24px;}
+.hero img{width:350px;border-radius:16px;margin-bottom:24px;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+.back-button{
+  display:inline-block;
+  margin-top:16px;
+  padding:12px 18px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+.back-button:hover{
+  background:var(--accent-dark);
+  box-shadow:0 8px 20px rgba(46,125,50,0.3);
+}
+
+/* Grid */
+.content-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:32px;}
+@media(max-width:1000px){.content-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.content-grid{grid-template-columns:1fr;}}
+
+/* Card */
+.content-card{
+  background:var(--card);
+  padding:24px;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.08);
+  transition:all 0.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+.content-card img{
+  width: 100%;
+  aspect-ratio: 4 / 3;   /* ทำให้ภาพทุกใบเป็น 4:3 */
+  object-fit: cover;     /* ครอบรูปให้สวย ไม่ยืด ไม่เบี้ยว */
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+.content-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;width:100%;height:6px;
+  background:linear-gradient(90deg,var(--accent),#a7e57a);
+  transition:0.3s;
+}
+.content-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(46,125,50,0.25);}
+.content-card:hover::before{height:8px;}
+.content-card h3{margin:0 0 12px 0;color:var(--accent-dark);}
+.content-card p{margin:0;color:var(--muted);line-height:1.7;font-size:15px;}
+ul.sublist{padding-left:16px;margin:8px 0;}
+ul.sublist li{margin-bottom:6px;font-size:14px;color:#3a563f;}
+
+/* Animation */
+@keyframes fadeIn{
+  0%{opacity:0;transform:translateY(20px);}
+  100%{opacity:1;transform:translateY(0);}
+}
+
+footer{margin-top:48px;padding:20px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(0,0,0,0.04);}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="topbar">
+<div class="brand">
+  <div class="logo" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 21s7-8 20-9c0 0-6 4-8 7 0 0-4-2-12 2z" fill="#ffffff" opacity="0.12"/>
+      <path d="M6 18c3-2 6-6 11-8" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+      <path d="M12 3c0 1 2 4 4 5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div>
+    <h1>Palm Story</h1>
+    <p>เรื่องราวของปาล์มน้ำมัน </p>
+  </div>
+</div>
+<nav>
+<ul>
+  <li><a href="processing.html">การแปรรูป</a></li>
+  <li><a href="harvesting.html">การเก็บเกี่ยว</a></li>
+  <li><a href="product-processing.html">การแปรรูปผลิตภัณฑ์</a></li>
+  <li><a href="sustainability.html">ความยั่งยืน</a></li>
+  <li><a href="quality.html" class="primary">คุณภาพ</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<section class="hero">
+  <h2>คุณภาพและมาตรฐานน้ำมันปาล์ม</h2>
+  <p>น้ำมันปาล์มมีมาตรฐานและตรวจสอบคุณภาพอย่างเข้มงวด เพื่อตอบสนองความต้องการของตลาดทั้งในและต่างประเทศเพื่อสร้างความมั่นใจให้ผู้บริโภคทุกขั้นตอน</p>
+  
+ 
+<section class="content-grid">
+<!-- การตรวจสอบคุณภาพ -->
+<div class="content-card" style="--accent:#4caf50;">
+<img src="https://i.pinimg.com/1200x/11/da/1d/11da1d342a1d866b415b9e0752edc766.jpg" alt="การตรวจสอบคุณภาพ">
+<h3>การตรวจสอบคุณภาพ</h3>
+<p>ทุกล็อตน้ำมันปาล์มผ่านการตรวจสอบเพื่อให้มั่นใจในคุณภาพและความปลอดภัย</p>
+<ul class="sublist">
+  <li>วิเคราะห์ค่า Free Fatty Acid (FFA) เพื่อประเมินความสดใหม่</li>
+  <li>วัดความชื้นและสิ่งเจือปน</li>
+  <li>ทดสอบสี กลิ่น และรสชาติให้ตรงตามมาตรฐาน</li>
+  <li>บันทึกผลตรวจสอบ QC เพื่อติดตามย้อนหลัง</li>
+</ul>
+</div>
+
+<!-- มาตรฐานสากล -->
+<div class="content-card" style="--accent:#66bb6a;">
+<img src="http://www.palmoilproductionmill.com/uploads/allimg/150120/2-1501201H45J29.png" alt="มาตรฐานสากล">
+<h3>มาตรฐานสากล</h3>
+<p>โรงงานต้องปฏิบัติตามมาตรฐานสากลเพื่อความปลอดภัยและความยั่งยืน</p>
+<ul class="sublist">
+  <li>RSPO สำหรับการผลิตยั่งยืน</li>
+  <li>ISO 22000 ระบบความปลอดภัยอาหาร</li>
+  <li>GMP และ HACCP สำหรับการผลิตที่มีคุณภาพ</li>
+  <li>ตรวจประเมินประจำปีเพื่อรักษามาตรฐาน</li>
+</ul>
+</div>
+
+<!-- การเก็บรักษา -->
+<div class="content-card" style="--accent:#81c784;">
+<img src="https://media.sciencephoto.com/image/c0147504/800wm" alt="การเก็บรักษา">
+<h3>การเก็บรักษา</h3>
+<p>น้ำมันปาล์มต้องเก็บอย่างเหมาะสมเพื่อคงคุณภาพและยืดอายุการใช้งาน</p>
+<ul class="sublist">
+  <li>ใช้ถังเก็บปิดมิดชิด ป้องกันแสงและอากาศ</li>
+  <li>ควบคุมอุณหภูมิให้อยู่ในช่วงเหมาะสม</li>
+  <li>หมุนเวียนสต็อกและตรวจสอบอายุการเก็บ</li>
+  <li>ติดตามสภาพถังและอุปกรณ์อย่างสม่ำเสมอ</li>
+</ul>
+</div>
+
+<!-- การตรวจสอบห้องแล็บ -->
+<div class="content-card" style="--accent:#388e3c;">
+<img src="https://alliedchemists.com.my/wp-content/uploads/2017/02/Allied-Chemists-0599-2.jpg" alt="การตรวจสอบจากห้องแล็บ">
+<h3>การตรวจสอบจากห้องแล็บ</h3>
+<p>การทดสอบในห้องแล็บยืนยันคุณภาพและความปลอดภัย</p>
+<ul class="sublist">
+  <li>วิเคราะห์ค่ากรดไขมันและ Peroxide Value</li>
+  <li>ตรวจสอบจุลชีววิทยา ป้องกันการปนเปื้อน</li>
+  <li>รายงานผลให้ผู้ผลิตและผู้บริโภค</li>
+  <li>มีมาตรฐานห้องแล็บ ISO/IEC 17025</li>
+</ul>
+</div>
+
+<!-- การควบคุมระหว่างผลิต -->
+<div class="content-card" style="--accent:#2e7d32;">
+<img src="https://www.edibleoilextractionmachine.com/uploads/202410/1729235403270540.jpg" alt="การควบคุมคุณภาพระหว่างผลิต">
+<h3>การควบคุมคุณภาพระหว่างผลิต</h3>
+<p>มาตรการคุณภาพดำเนินตั้งแต่การสกัดจนถึงบรรจุ</p>
+<ul class="sublist">
+  <li>ตรวจสอบความร้อนและแรงดันเครื่องสกัด</li>
+  <li>การกรองและกำจัดสิ่งเจือปนอย่างสม่ำเสมอ</li>
+  <li>บันทึกข้อมูล Real-time</li>
+  <li>ตรวจสอบทุกขั้นตอนเพื่อป้องกันข้อผิดพลาด</li>
+</ul>
+</div>
+
+<!-- การรับรองผลิตภัณฑ์ -->
+<div class="content-card" style="--accent:#558b2f;">
+<img src="https://jmposner.e2ecdn.co.uk/ArticleImages/jmp-palm-oil-web-01.jpg" alt="การรับรองผลิตภัณฑ์">
+<h3>การรับรองผลิตภัณฑ์</h3>
+<p>น้ำมันปาล์มที่ผ่านมาตรฐานได้รับเครื่องหมายรับรองเพื่อสร้างความมั่นใจ</p>
+<ul class="sublist">
+  <li>ฉลาก RSPO สำหรับน้ำมันยั่งยืน</li>
+  <li>ฉลากคุณภาพจากหน่วยงานรัฐหรือเอกชน</li>
+  <li>รายงานผลตรวจสอบทุกล็อต</li>
+  <li>สร้างความเชื่อมั่นในตลาดโลก</li>
+</ul>
+</div>
+
+</section>
+</main>
+
+<footer>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;color:var(--muted);font-size:14px">
+      <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

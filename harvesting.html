@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>การเก็บเกี่ยวและสกัดน้ำมัน — Palm Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f9f3;
+  --accent:#2e7d32;
+  --accent-dark:#1b5e20;
+  --muted:#5d6d55;
+  --card:#ffffff;
+  font-family:'Kanit',sans-serif;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:#222;scroll-behavior:smooth;}
+.container{max-width:1100px;margin:0 auto;padding:24px;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#a7e57a,#2e7d32);display:grid;place-items:center;box-shadow:0 6px 18px rgba(46,125,50,0.12)}
+.logo svg{width:36px;height:36px}
+.brand h1{margin:0;font-size:18px;color:var(--accent-dark)}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+nav a{text-decoration:none;padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600;transition:0.3s;}
+nav a.primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(46,125,50,0.18)}
+nav a:hover{color:var(--accent-dark)}
+.hero{display:grid;grid-template-columns:1fr 430px;gap:28px;align-items:center;margin-top:18px}
+.hero-card{background:linear-gradient(180deg,#fff,#f3f9f3);padding:28px;border-radius:16px;box-shadow:0 10px 30px rgba(18,18,18,0.04)}
+.hero h2{margin:0 0 12px;font-size:28px;color:#1b5e20}
+.hero p{margin:0 0 16px;color:#3a563f;font-size:15px;line-height:1.6}
+.hero-visual{border-radius:16px;overflow:hidden;box-shadow:0 14px 40px rgba(46,125,50,0.08);background:linear-gradient(180deg,#eafbe8,#ffffff);padding:22px;display:flex;justify-content:center;}
+.hero-visual img{width:100%;border-radius:16px;transition:0.3s;}
+.hero-visual img:hover{transform:scale(1.05);}
+
+.section-title{
+  margin-top:48px;
+  font-size:26px;
+  color:var(--accent-dark);
+  text-align:center;
+  margin-bottom:18px;
+  font-weight:700;
+}
+
+.content-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:20px;}
+.content-card{
+  background:var(--card);
+  padding:24px;
+  border-radius:14px;
+  box-shadow:0 10px 28px rgba(10,10,10,0.04);
+  transition:0.3s;
+  position:relative;
+}
+.content-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;width:100%;height:6px;
+  background:linear-gradient(90deg,var(--accent),#a7e57a);
+}
+.content-card img {
+  width: 100%;
+  aspect-ratio: 7 / 5;   /* บังคับอัตราส่วน 4:3 */
+  object-fit: cover;     /* ตัดส่วนเกินให้เต็มกรอบ */
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.content-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(46,125,50,0.2);}
+.content-card img{width:100%;border-radius:10px;margin-bottom:12px;}
+.content-card h3{margin:0 0 12px;color:var(--accent-dark);}
+.content-card p{margin:0;color:var(--muted);line-height:1.7;font-size:15px;}
+
+.back-button{
+  display:inline-block;margin-top:16px;padding:10px 16px;
+  background:var(--accent);color:#fff;
+  border-radius:10px;font-weight:600;text-decoration:none;
+  transition:.3s;
+}
+.back-button:hover{background:var(--accent-dark);box-shadow:0 8px 20px rgba(46,125,50,0.2);}
+
+@media(max-width:640px){
+  .content-grid{grid-template-columns:1fr;}
+  .hero{grid-template-columns:1fr;}
+}
+footer{margin-top:48px;padding:20px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(0,0,0,0.04);}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="topbar">
+<div class="brand">
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M2 21s7-8 20-9c0 0-6 4-8 7 0 0-4-2-12 2z" fill="#fff" opacity="0.2"/>
+      <path d="M6 18c3-2 6-6 11-8" stroke="#fff" stroke-width="1.2" opacity="0.8"/>
+      <path d="M12 3c0 1 2 4 4 5" stroke="#fff" stroke-width="1.2"/>
+    </svg>
+  </div>
+  <div>
+    <h1>Palm Story</h1>
+    <p>เรื่องราวของปาล์มน้ำมัน </p>
+  </div>
+</div>
+<nav>
+<ul>
+  <li><a href="processing.html">การแปรรูป</a></li>
+  <li><a href="harvesting.html" class="primary">การเก็บเกี่ยว</a></li>
+  <li><a href="product-processing.html">การแปรรูปผลิตภัณฑ์</a></li>
+  <li><a href="sustainability.html">ความยั่งยืน</a></li>
+  <li><a href="quality.html">คุณภาพ</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- HERO -->
+<main>
+<section class="hero">
+  <div class="hero-card">
+    <h2>การเก็บเกี่ยวและสกัดน้ำมัน</h2>
+    <p>
+      กระบวนการเก็บเกี่ยวผลปาล์มเป็นขั้นตอนสำคัญที่สุดอย่างหนึ่ง 
+      เพราะจะกำหนดคุณภาพของน้ำมันที่ได้ทั้งหมด หากเก็บผลดิบหรือเก็บช้าเกินไป 
+      ค่า FFA จะสูง ทำให้คุณภาพลดลง การสกัดน้ำมันสมัยใหม่ใช้เครื่องจักรที่เพิ่มความปลอดภัย
+      ลดแรงงาน และช่วยรักษามาตรฐานคุณภาพได้อย่างต่อเนื่อง
+    </p>
+  </div>
+
+  <div class="hero-visual">
+    <img src="https://i.pinimg.com/1200x/13/2a/51/132a5124a329e3cf8ae18ec10544c9e6.jpg">
+  </div>
+</section>
+
+<!-- SECTION 1 -->
+<h2 class="section-title">ขั้นตอนการเก็บเกี่ยวผลปาล์มน้ำมัน</h2>
+<div class="content-grid">
+
+  <!-- 1 -->
+  <div class="content-card">
+    <img src="https://i.pinimg.com/1200x/8d/f8/ec/8df8ec197d07dcdaf0e1467cd0fb2796.jpg">
+    <h3>1. การประเมินผลปาล์มที่สุกเต็มที่</h3>
+    <p>
+      การเลือกทะลายสุกเป็นขั้นตอนที่ต้องใช้ประสบการณ์ โดยสังเกตจากผลที่ร่วงตามธรรมชาติ 10–15 ผล 
+      สีของผลจะเข้มขึ้น เนื้อในเริ่มเปลี่ยนเป็นสีส้ม และเมื่อเคาะจะให้เสียงทึบ  
+      ช่วงนี้เป็นเวลาที่เหมาะสมที่สุดในการสกัดน้ำมันปริมาณมากและมีคุณภาพสูง
+    </p>
+  </div>
+
+  <!-- 2 -->
+  <div class="content-card">
+    <img src="https://i.pinimg.com/1200x/da/a6/f6/daa6f6f3af2e862b1728ea8fced968a6.jpg">
+    <h3>2. การใช้เคียวเกี่ยวปาล์มอย่างถูกต้อง</h3>
+    <p>
+      เครื่องมือที่ใช้ ได้แก่ เคียวง่าม เคียวสตาร์ หรือเลื่อยตะไบแบบด้ามยาว  
+      ผู้เกี่ยวต้องจับมุมให้ถูกต้องเพื่อให้ทะลายตกลงโดยไม่กระจัดกระจาย 
+      สิ่งสำคัญคือการตัดให้ขั้วติดกับทะลายน้อยที่สุด เพื่อป้องกันการบอบช้ำของผล
+    </p>
+  </div>
+
+  <!-- 3 -->
+  <div class="content-card">
+    <img src="https://i.pinimg.com/1200x/09/b8/34/09b8342052606748f01a425c08281d04.jpg">
+    <h3>3. เก็บผลร่วงและคัดแยกคุณภาพ</h3>
+    <p>
+      ผลร่วงมีน้ำมันดีเช่นเดียวกับผลในทะลาย แต่ต้องแยกเศษหญ้า ใบไม้ และสิ่งปนเปื้อนออกให้หมด  
+      ผลที่เริ่มเน่า หรือถูกแดดมากเกินไป จะทำให้กรดไขมันอิสระสูงขึ้น ต้องคัดออกก่อนขนส่ง
+    </p>
+  </div>
+
+  <!-- 4 -->
+  <div class="content-card">
+    <img src="https://i.pinimg.com/736x/1a/67/66/1a6766d23c0f484e82e1975a937ad70c.jpg">
+    <h3>4. การขนส่งผลปาล์มไปโรงงาน</h3>
+    <p>
+      ต้องขนส่งภายใน 12–24 ชั่วโมงเพื่อลดการสะสมของ FFA  
+      รถบรรทุกต้องมีการระบายอากาศดี และไม่อัดผลจนแน่นเกินไป 
+      เพื่อป้องกันการช้ำซึ่งทำให้น้ำมันเสื่อมคุณภาพก่อนสกัด
+    </p>
+  </div>
+
+</div>
+
+<!-- SECTION 2 -->
+<h2 class="section-title">ขั้นตอนการสกัดน้ำมันปาล์มดิบ (CPO)</h2>
+
+<div class="content-grid">
+
+  <!-- 1 -->
+  <div class="content-card">
+    <img src="https://i.pinimg.com/1200x/94/fe/50/94fe50afc5720ee53e9c66b96a4d3d69.jpg">
+    <h3>1. การอบนึ่ง (Sterilization)</h3>
+    <p>
+      ใช้ไอน้ำแรงดันสูง 130–140°C เป็นเวลา 60–90 นาที  
+      เพื่อหยุดการเกิด FFA ทำให้ผลหลุดง่าย และฆ่าเชื้อโรคที่อาจทำให้น้ำมันเหม็นหืน  
+      ขั้นตอนนี้เป็นหัวใจของการคงคุณภาพน้ำมัน
+    </p>
+  </div>
+
+  <!-- 2 -->
+  <div class="content-card">
+    <img src="C:\Users\asus\Downloads\Gemini_Generated_Image_2apt8y2apt8y2apt.png">
+    <h3>2. การกะเทาะผลออกจากทะลาย</h3>
+    <p>
+      เครื่องกะเทาะจะหมุนเพื่อเหวี่ยงทะลายและแยกผลออกโดยไม่ทำให้เมล็ดแตก  
+      เปลือกและทะลายที่เหลือนำไปเป็นเชื้อเพลิงสำหรับโรงงานได้ ลดต้นทุนพลังงาน
+    </p>
+  </div>
+
+  <!-- 3 -->
+  <div class="content-card">
+    <img src="https://i.pinimg.com/736x/1d/16/ee/1d16ee6e73203cd5e1a4246adda42a36.jpg">
+    <h3>3. การบดและกดสกัดน้ำมัน (Pressing)</h3>
+    <p>
+      ผลปาล์มจะถูกบดให้เนื้อนิ่มจนเซลล์แตก ก่อนส่งเข้าเครื่องกดแรงดันสูง  
+      ได้เป็นน้ำมันปาล์มดิบ (CPO) พร้อมกากเส้นใย  
+      ขั้นตอนนี้ต้องควบคุมอุณหภูมิให้เหมาะสมเพื่อป้องกันน้ำมันเสียคุณภาพ
+    </p>
+  </div>
+
+  <!-- 4 -->
+  <div class="content-card">
+    <img src="https://i.pinimg.com/736x/7e/09/2e/7e092e8f399409dc611ac837d21291f7.jpg">
+    <h3>4. การหมุนเหวี่ยงและการกรอง</h3>
+    <p>
+      น้ำมันจะถูกแยกสิ่งปนเปื้อน เช่น กาก เยื่อ เนื้อ และน้ำ ด้วยเครื่องหมุนเหวี่ยง  
+      จากนั้นจึงเข้าสู่ระบบกรองเพื่อได้น้ำมันใส พร้อมส่งไปสู่กระบวนการฟอกสีหรือกลั่นขั้นต่อไป
+    </p>
+  </div>
+
+</div>
+
+<!-- SECTION 3 -->
+<h2 class="section-title">การสกัดน้ำมันเมล็ดปาล์ม (Palm Kernel Oil – PKO)</h2>
+
+<div class="content-grid">
+
+  <!-- 1 -->
+  <div class="content-card">
+    <img src="https://i.pinimg.com/1200x/27/d5/a2/27d5a238ab6e6a975c0b6479bce703ef.jpg">
+    <h3>1. การแยกเมล็ดออกจากกะลา</h3>
+    <p>
+      หลังจากแยกผลออกจากทะลายแล้ว เมล็ดด้านในจะถูกคัดแยกโดยเครื่องกระแทก  
+      และนำไปทำความสะอาดก่อนผ่านการตากหรืออบแห้งเพื่อลดความชื้น  
+      ความชื้นที่ต่ำช่วยให้ได้น้ำมันเมล็ดที่บริสุทธิ์และเก็บรักษาได้นานขึ้น
+    </p>
+  </div>
+
+  <!-- 2 -->
+  <div class="content-card">
+    <img src="https://i.pinimg.com/736x/d2/c1/97/d2c197936f01e1237b78f75aafe41d2d.jpg">
+    <h3>2. การบดและกดสกัดเมล็ด</h3>
+    <p>
+      เมล็ดที่แห้งสนิทถูกบดจนละเอียดและส่งเข้าสู่เครื่องกดสกัดแบบสกรู  
+      น้ำมันที่ได้จะใสและมีปริมาณกรดไขมันอิสระต่ำกว่า CPO  
+      นิยมใช้ในอุตสาหกรรมสบู่ เครื่องสำอาง และผลิตภัณฑ์เคมีภัณฑ์
+    </p>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;color:var(--muted);font-size:14px">
+      <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+    </div>
+  </footer>
+</div>
+
+
+</div>
+</body>
+</html>

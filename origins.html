@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ต้นกำเนิดปาล์มน้ำมัน — Palm Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f9f3;
+  --accent:#2e7d32;
+  --accent-dark:#1b5e20;
+  --muted:#5d6d55;
+  --card:#ffffff;
+  font-family: 'Kanit', sans-serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#ffffff);
+  color:#222;
+  line-height:1.7;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+
+/* Topbar */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;position:relative;z-index:10;}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#a7e57a,#2e7d32);display:grid;place-items:center;box-shadow:0 6px 18px rgba(46,125,50,0.12)}
+.logo svg{width:36px;height:36px}
+.brand h1{margin:0;font-size:18px;line-height:1;color:var(--accent-dark)}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+nav a{text-decoration:none;padding:8px 14px;border-radius:8px;color:var(--muted);font-weight:600;transition:0.3s}
+nav a.primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(46,125,50,0.18)}
+nav a:hover{color:var(--accent-dark)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px;position:relative;z-index:1}
+.hero-card{background:linear-gradient(180deg,#eafbe8,#ffffff);padding:28px;border-radius:16px;box-shadow:0 10px 30px rgba(46,125,50,0.15);position:relative;z-index:2}
+.hero h2{margin:0 0 12px 0;font-size:28px;color:var(--accent-dark)}
+.hero p{margin:0;color:#3a563f;font-size:17px;line-height:1.8;}
+
+/* Hero Visual */
+.hero-visual{border-radius:16px;overflow:hidden;box-shadow:0 14px 40px rgba(46,125,50,0.1);background:linear-gradient(180deg,#eafbe8,#ffffff);display:flex;align-items:center;justify-content:center;padding:22px;position:relative;z-index:2}
+.hero-visual img{width:100%;height:auto;border-radius:16px;transition: transform 0.3s ease;}
+.hero-visual img:hover{transform:scale(1.05);}
+
+/* Content Cards */
+section{margin-top:36px}
+.content-card{
+  background:var(--card);
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(46,125,50,0.15);
+  transition: all 0.3s ease;
+}
+.content-card:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 18px 36px rgba(46,125,50,0.3);}
+.content-card h3{margin:0 0 12px 0;color:var(--accent-dark);font-size:24px;position:relative;padding-left:28px}
+.content-card h3::before { content:'🌿'; position:absolute; left:0; top:0;}
+.content-card p{margin:0;color:var(--muted);font-size:17px;line-height:1.8;}
+.content-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  margin:12px 0;
+  box-shadow:0 6px 18px rgba(46,125,50,0.15);
+}
+.content-card + .content-card{margin-top:24px}
+
+/* Footer */
+footer{margin-top:48px;padding:20px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(0,0,0,0.04)}
+
+/* Back to Top */
+#backToTop{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  z-index:999;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  font-size:24px;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(46,125,50,0.3);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s ease;
+}
+#backToTop:hover{background:var(--accent-dark);transform:translateY(-4px) rotate(15deg);}
+
+/* Floating Palms */
+.floating-palm{
+  position:absolute;
+  width:80px;
+  height:80px;
+  background-image:url('https://i.pinimg.com/564x/8a/7c/63/8a7c63b3dbb1dc7d550e3f4c5b3b9d80.jpg');
+  background-size:contain;
+  background-repeat:no-repeat;
+  opacity:0.15;
+  animation:float linear infinite;
+  z-index:0;
+}
+@keyframes float{
+  0%{transform:translateY(0px) rotate(0deg);}
+  50%{transform:translateY(-30px) rotate(15deg);}
+  100%{transform:translateY(0px) rotate(0deg);}
+}
+
+/* Responsive */
+@media (max-width:980px){.hero{grid-template-columns:1fr;} .hero-visual{margin-top:20px;}}
+@media (max-width:640px){nav ul{display:none} .container{padding:16px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Floating Palms -->
+  <div class="floating-palm" style="top:40px;left:20px;animation-duration:14s;"></div>
+  <div class="floating-palm" style="top:180px;left:130px;animation-duration:16s;"></div>
+  <div class="floating-palm" style="top:300px;left:60px;animation-duration:20s;"></div>
+  <div class="floating-palm" style="top:120px;right:40px;animation-duration:18s;"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 21s7-8 20-9c0 0-6 4-8 7 0 0-4-2-12 2z" fill="#ffffff" opacity="0.12"/>
+          <path d="M6 18c3-2 6-6- 11-8" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+          <path d="M12 3c0 1 2 4 4 5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Palm Story</h1>
+       <p>เรื่องราวของปาล์มน้ำมัน </p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="history.html">ประวัติ</a></li>
+        <li><a href="origins.html" class="primary">ต้นกำเนิด</a></li>
+        <li><a href="expansion.html">ขยายสู่เอเชีย</a></li>
+        <li><a href="thailand.html">บทบาทในไทย</a></li>
+        <li><a href="sustainable.html">พัฒนายั่งยืน</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+  <div class="hero-card">
+    <h2>ต้นกำเนิดของปาล์มน้ำมัน</h2>
+    <p>ปาล์มน้ำมันมีรากฐานมาจากทวีปแอฟริกาตะวันตกและกลาง พืชชนิดนี้ได้ปรากฏในป่าดิบชื้นที่มีฝนตกสม่ำเสมอตลอดปี มนุษย์ในท้องถิ่นใช้ปาล์มทั้งผล เมล็ด และน้ำมันมาตั้งแต่สมัยโบราณ ทั้งในด้านอาหาร พลังงาน และพิธีกรรมทางวัฒนธรรม การศึกษาทางโบราณคดีพบหลักฐานการใช้ปาล์มน้ำมันมากกว่า 5000 ปี</p>
+  </div>
+
+  <!-- ✅ HERO VISUAL ใหม่ (รองรับหลายรูป + อยู่เป็นบล็อค + มี caption ใต้รูปจริง) -->
+  <div class="hero-visual">
+    <div class="img-box">
+      <img src="https://jitpisutsukyoy55.wordpress.com/wp-content/uploads/2013/01/17.gif" alt="แผนที่พื้นที่ปลูกปาล์มน้ำมันทั่วโลก">
+      <p class="img-caption">
+        สีแดง   คือ ประเทศที่ปลูกปาล์มน้ำมันมากกว่า 600,000 ไร่<br>
+        สีเหลือง คือ ประเทศที่ปลูกปาล์มน้ำมันน้อยกว่า 600,000 ไร่
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+    <section>
+      <div class="content-card">
+        <h3>ต้นปาล์มในแอฟริกา</h3>
+        <img src="C:\Users\asus\Downloads\Gemini_Generated_Image_fq9jvbfq9jvbfq9j.png" alt="ต้นปาล์มแอฟริกา">
+        <p>แอฟริกาเป็นถิ่นกำเนิดของปาล์มหลายชนิด โดยเด่นที่สุดคือ ปาล์มน้ำมันแอฟริกัน (Elaeis guineensis) ซึ่งเติบโตในเขตร้อนและเป็นพืชเศรษฐกิจสำคัญ ให้ทั้งน้ำมันปาล์มและน้ำมันเมล็ดปาล์ม นอกจากนี้ยังมีปาล์มพื้นเมืองอื่น ๆ เช่น Doum Palm, Raffia Palm และ อินทผลัม ที่ใช้เป็นอาหาร วัสดุสาน และของใช้พื้นบ้าน ปาล์มเหล่านี้ยังมีบทบาทสำคัญต่อระบบนิเวศ ช่วยเป็นที่อยู่อาศัยของสัตว์และเพิ่มความหลากหลายทางชีวภาพในภูมิภาคแอฟริกา</p>
+      </div>
+
+      <div class="content-card">
+        <h3>การใช้ประโยชน์ในสังคมดั้งเดิม</h3>
+        <img src="https://ensia.com/wp-content/uploads/2019/03/Feature_PalmOil_inline3.jpg" alt="การใช้ปาล์มดั้งเดิม">
+        <p>ในสังคมดั้งเดิมของแอฟริกา ปาล์มน้ำมันถูกใช้แทบทุกส่วน ผลปาล์มถูกสกัดเป็นน้ำมันสีแดงสำหรับปรุงอาหาร กะลาและเปลือกใช้เป็นเชื้อเพลิง ใบและก้านนำมาทำหลังคาและเครื่องจักสาน น้ำมันปาล์มยังมีบทบาทในพิธีกรรม ความเชื่อ และการรักษาพื้นบ้าน จึงเป็นพืชที่ผูกพันกับวิถีชีวิตของชุมชนมาตั้งแต่โบราณ</p>
+      </div>
+
+      <div class="content-card">
+        <h3>การเดินทางสู่ต่างทวีป</h3>
+        <img src="C:\Users\asus\Downloads\Gemini_Generated_Image_iavwbfiavwbfiavw.png" alt="การขนส่งปาล์มสู่เอเชีย">
+        <p>ปาล์มน้ำมันเริ่มแพร่กระจายออกจากแอฟริกาในช่วงศตวรรษที่ 15-16 เมื่อพ่อค้าชาวยุโรปนำเมล็ดพันธุ์ไปปลูกในอาณานิคมเขตร้อน โดยเฉพาะในเอเชียตะวันออกเฉียงใต้ที่มีภูมิอากาศเหมาะสม ต่อมามีการพัฒนาสายพันธุ์และเทคนิคการปลูกเชิงพาณิชย์ ทำให้ภูมิภาคนี้กลายเป็นแหล่งผลิตปาล์มน้ำมันที่สำคัญที่สุดของโลก</p>
+      </div>
+
+      <div class="content-card">
+        <h3>ปาล์มและความหลากหลายทางชีวภาพ</h3>
+        <img src="https://i.pinimg.com/1200x/15/09/62/1509628dfb3f12517bdfc154ad41bddb.jpg" alt="ความหลากหลายทางชีวภาพ">
+        <p>ปาล์มน้ำมันมีหลากหลายสายพันธุ์ เช่น ปาล์มแอฟริกา ปาล์มอเมริกาใต้ และลูกผสม ซึ่งแต่ละชนิดมีจุดเด่นต่างกัน การรักษาความหลากหลายทางพันธุกรรมจึงสำคัญต่อความทนทานของพืชและความมั่นคงของการผลิต นอกจากนี้ สวนปาล์มยังเกี่ยวข้องกับระบบนิเวศท้องถิ่น การจัดการอย่างยั่งยืนช่วยลดผลกระทบต่อสัตว์ป่า พืชพื้นถิ่น และความสมดุลทางธรรมชาติ</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;color:var(--muted);font-size:14px">
+      <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+    </div>
+  </footer>
+</div>
+  
+
+<button id="backToTop" title="กลับขึ้นบน">↑</button>
+
+<script>
+// Back to Top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', ()=> {
+  if(window.scrollY > 300){ backToTop.style.display='flex'; }
+  else { backToTop.style.display='none'; }
+});
+backToTop.addEventListener('click', ()=>{ window.scrollTo({top:0, behavior:'smooth'}); });
+</script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>การแปรรูปผลิตภัณฑ์ — Palm Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5fdf7;
+  --accent:#2e7d32;
+  --accent-light:#6fbf73;
+  --text:#2f3e34;
+  --card:#ffffff;
+  --border:#dfe9e2;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Kanit',sans-serif;}    
+.container{max-width:1200px;margin:0 auto;padding:30px;}
+header{display:flex;justify-content:space-between;align-items:center;padding:10px 0;margin-bottom:20px;}
+.brand h1{margin:0;font-size:24px;color:var(--accent);}  
+.brand p{margin:0;font-size:14px;color:#58705c;}
+nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0;}
+nav a{padding:8px 14px;text-decoration:none;border-radius:8px;color:#3d5742;font-weight:600;border:1px solid transparent;transition:.25s;}
+nav a:hover{border-color:var(--accent);color:var(--accent);}    
+nav a.active{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(46,125,50,0.2);}    
+
+.hero{background:#e8f5e9;border-radius:18px;padding:40px;margin-bottom:35px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.06);}    
+.hero h2{margin:0;font-size:36px;color:var(--accent);}    
+.hero p{font-size:18px;color:#496653;margin-top:12px;line-height:1.6;}    
+.hero img{width:360px;border-radius:14px;margin-top:20px;box-shadow:0 6px 20px rgba(0,0,0,0.1);}
+
+.tabs{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;}
+.tab-button{padding:10px 18px;background:#ffffff;border:1px solid #dfe9e2;border-radius:10px;cursor:pointer;transition:.3s;font-family:'Prompt',sans-serif;font-weight:500;}
+.tab-button.active{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(46,125,50,0.2);}
+
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:20px;}
+.card{background:var(--card);border-radius:16px;padding:24px;border:1px solid var(--border);box-shadow:0 4px 14px rgba(0,0,0,0.04);transition:.3s;}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(46,125,50,0.18);} 
+.card img{width:100%;border-radius:14px;margin-bottom:14px;}
+.card h3{margin:0 0 12px 0;color:var(--accent);font-family:'Prompt',sans-serif;font-weight:600;}   
+.card p{margin:0;font-size:15px;line-height:1.7;color:#4b5e52;}
+.card ul{padding-left:18px;margin-top:8px;}
+.card ul li{margin-bottom:6px;}
+.card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;   /* กำหนดอัตราส่วน 4:3 */
+    object-fit: cover;     /* ครอบภาพให้เต็มกรอบ */
+    border-radius: 14px;
+    margin-bottom: 14px;
+}
+
+
+.back-button{display:inline-block;margin-top:20px;padding:10px 16px;background:var(--accent);color:#fff;text-decoration:none;border-radius:10px;font-weight:600;}
+.back-button:hover{background:var(--accent-light);}  
+
+footer{margin-top:50px;padding:20px 0;border-top:1px solid #e2eee4;text-align:center;color:#58705c;font-size:14px;}
+
+@media(max-width:700px){
+  .content-grid{grid-template-columns:1fr;}
+  .hero img{width:100%;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="brand" style="display:flex;align-items:center;gap:12px;">
+
+    <!-- โลโก้ -->
+    <div class="logo" style="width:52px;height:52px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C12 4 15 8 18 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M4 20C7 16 14 10 22 9C22 9 16 13 14 17C14 17 10 15 4 20Z" 
+              fill="#fff" opacity=".18"/>
+        <path d="M7 17C10 14 13 10 18 8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- ข้อความแบรนด์ -->
+    <div>
+      <h1 style="margin:0;font-size:24px;color:var(--accent);">Palm Story</h1>
+      <p style="margin:0;font-size:14px;color:#58705c;">เรื่องราวของปาล์มน้ำมัน</p>
+    </div>
+
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="processing.html">การแปรรูป</a></li>
+      <li><a href="harvesting.html">การเก็บเกี่ยว</a></li>
+      <li><a class="active" href="product-processing.html">การแปรรูปผลิตภัณฑ์</a></li>
+      <li><a href="sustainability.html">ความยั่งยืน</a></li>
+      <li><a href="quality.html">คุณภาพ</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <h2>การแปรรูปผลิตภัณฑ์จากน้ำมันปาล์ม</h2>
+  <p>น้ำมันปาล์มถูกนำไปแปรรูปเป็นผลิตภัณฑ์หลากหลาย ทั้งอาหาร เครื่องสำอาง เบเกอรี่ สบู่ ไบโอดีเซล เคมีภัณฑ์ และอาหารเสริม โดยแต่ละหมวดมีคุณสมบัติและข้อดีที่แตกต่างกัน พร้อมภาพประกอบทุกหมวด</p>
+
+<div class="tabs">
+  <div class="tab-button active" data-tab="food">อาหาร</div>
+  <div class="tab-button" data-tab="cosmetic">เครื่องสำอาง</div>
+  <div class="tab-button" data-tab="bakery">เบเกอรี่/ไขมัน</div>
+  <div class="tab-button" data-tab="soap">สบู่</div>
+  <div class="tab-button" data-tab="fuel">ไบโอดีเซล</div>
+  <div class="tab-button" data-tab="chemical">เคมีภัณฑ์</div>
+  <div class="tab-button" data-tab="health">สุขภาพ/อาหารเสริม</div>
+</div>
+
+<!-- 1. อาหาร -->
+<section class="content-grid" id="food">
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/31/f2/8e/31f28e11ce7bafcca87b6d5f4343686e.jpg" alt="อาหารสำเร็จรูป">
+    <h3>อาหารสำเร็จรูป</h3>
+    <ul>
+      <li>เพิ่มความคงตัวและความกรอบในขนมอบ</li>
+      <li>ให้รสชาติที่นวลละมุนในอาหารสำเร็จรูป</li>
+      <li>ช่วยยืดอายุการเก็บรักษา</li>
+      <li>มีความเสถียรต่อความร้อนสูง</li>
+      <li>เป็นแหล่งพลังงานสูงสำหรับผู้บริโภค</li>
+    </ul>
+  </div>
+  <div class="card">
+    <img src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_1095/k%2Farchive%2F335e9e3146e0571069de95e5d71b78e553b324fe" alt="ขนมอบ">
+    <h3>ขนมอบและขนมขบเคี้ยว</h3>
+    <ul>
+      <li>ปรับเนื้อสัมผัสให้กรอบนาน</li>
+      <li>ช่วยให้สีสันอาหารดูน่ากิน</li>
+      <li>เหมาะสำหรับการอบและทอด</li>
+      <li>เพิ่มคุณค่าโภชนาการเล็กน้อยจากกรดไขมันดี</li>
+      <li>ใช้ในขนมหลายประเภท เช่น คุกกี้ คัพเค้ก ขนมขบเคี้ยว</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. เครื่องสำอาง -->
+<section class="content-grid" id="cosmetic" style="display:none;">
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/ea/8f/52/ea8f52c5fa137df759e62092e922a996.jpg" alt="เครื่องสำอาง">
+    <h3>ครีม โลชั่น โฟมล้างหน้า</h3>
+    <ul>
+      <li>ให้ความชุ่มชื้นสูงและซึมซาบง่าย</li>
+      <li>มีกรดไขมันที่อ่อนโยนต่อผิว</li>
+      <li>ช่วยคงเนื้อและความคงตัวของสูตร</li>
+      <li>สามารถปรับสูตรตามสภาพผิว</li>
+      <li>เป็นแหล่งธรรมชาติ ปลอดสารเคมีอันตราย</li>
+    </ul>
+  </div>
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/3b/c2/93/3bc2935bf5822c02c868da861e9d711f.jpg" alt="ลิปบาล์ม">
+    <h3>ลิปบาล์มและบำรุงริมฝีปาก</h3>
+    <ul>
+      <li>ให้ความชุ่มชื้นนุ่มนวล</li>
+      <li>ช่วยปกป้องริมฝีปากจากแดดและลม</li>
+      <li>สามารถผสมสีและกลิ่นธรรมชาติ</li>
+      <li>ใช้ได้ทุกเพศทุกวัย</li>
+      <li>บรรจุในรูปแบบแท่งหรือกระปุก</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3. เบเกอรี่/ไขมัน -->
+<section class="content-grid" id="bakery" style="display:none;">
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/a4/de/44/a4de44bcd9d2ae5967f0994b6f718094.jpg" alt="ไขมันสำหรับเบเกอรี่">
+    <h3>ไขมันพืชสำหรับเบเกอรี่</h3>
+    <ul>
+      <li>ใช้ทำมาการีน ครีม และไส้ขนม</li>
+      <li>ให้เนื้อสัมผัสนุ่มและคงตัว</li>
+      <li>สามารถเก็บรักษาได้นาน</li>
+      <li>ปรับความแข็งอ่อนตามประเภทขนม</li>
+      <li>เหมาะสำหรับเบเกอรี่มืออาชีพและอุตสาหกรรม</li>
+    </ul>
+  </div>
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/54/36/cb/5436cb64c1e6615a93860826cb8a5c88.jpg" alt="มาการีน">
+    <h3>มาการีนและเนยเทียม</h3>
+    <ul>
+      <li>เป็นส่วนผสมหลักในการอบขนมเค้กและพาย</li>
+      <li>ปรับเนื้อสัมผัสให้กรอบหรือนุ่มตามต้องการ</li>
+      <li>มีความคงตัวสูงและใช้งานง่าย</li>
+      <li>ทดแทนเนยสัตว์ได้อย่างมีประสิทธิภาพ</li>
+      <li>เหมาะสำหรับการผลิตขนมในปริมาณมาก</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4. สบู่ -->
+<section class="content-grid" id="soap" style="display:none;">
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/7d/33/64/7d3364de1e2b478ce6d4201ae2574085.jpg" alt="สบู่">
+    <h3>สบู่ก้อนและสบู่เหลว</h3>
+    <ul>
+      <li>ทำให้เกิดฟองง่ายและนุ่ม</li>
+      <li>เนื้อสบู่แข็งตัวดี</li>
+      <li>ไม่ระคายเคืองผิว</li>
+      <li>เหมาะสำหรับทุกสภาพผิว</li>
+      <li>สามารถผสมกลิ่นและสีธรรมชาติ</li>
+    </ul>
+  </div>
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/c7/21/cc/c721cc8f790b7bf930717c12eb5db1f4.jpg" alt="สบู่สมุนไพร">
+    <h3>สบู่สมุนไพรและออร์แกนิก</h3>
+    <ul>
+      <li>บำรุงและถนอมผิวด้วยสมุนไพร</li>
+      <li>ไม่มีสารเคมีอันตราย</li>
+      <li>เหมาะสำหรับผิวแพ้ง่าย</li>
+      <li>ให้ความชุ่มชื้นและรักษาสมดุลผิว</li>
+      <li>เป็นที่นิยมในตลาดออร์แกนิก</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. ไบโอดีเซล -->
+<section class="content-grid" id="fuel" style="display:none;">
+  <div class="card">
+    <img src="https://i.pinimg.com/1200x/0e/42/19/0e4219c81620216c5df688c96a4b130e.jpg" alt="ไบโอดีเซล">
+    <h3>เชื้อเพลิงชีวภาพ</h3>
+    <ul>
+      <li>เป็นแหล่งพลังงานทดแทน</li>
+      <li>ช่วยลดการพึ่งพาน้ำมันฟอสซิล</li>
+      <li>ลดมลพิษและควันดำ</li>
+      <li>สามารถปรับผสม B7 / B10 / B20</li>
+      <li>เหมาะสำหรับยานยนต์ทั่วไป</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6. เคมีภัณฑ์ -->
+<section class="content-grid" id="chemical" style="display:none;">
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/6b/10/f7/6b10f7968165b44d7b8d9998ebaebb37.jpg" alt="เคมีภัณฑ์">
+    <h3>สารตั้งต้นในอุตสาหกรรมเคมี</h3>
+    <ul>
+      <li>ผลิตกรดไขมัน แอลกอฮอล์ไขมัน</li>
+      <li>สร้างสารลดแรงตึงผิว Surfactants</li>
+      <li>ใช้ในผงซักฟอกและแชมพู</li>
+      <li>เป็นวัตถุดิบในพลาสติก สี และสิ่งทอ</li>
+      <li>ช่วยพัฒนาอุตสาหกรรมอย่างยั่งยืน</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 7. สุขภาพ/อาหารเสริม -->
+<section class="content-grid" id="health" style="display:none;">
+  <div class="card">
+    <img src="https://i.pinimg.com/1200x/db/09/5e/db095e31fae64a7bcb5cf2d1f14aac0a.jpg" alt="อาหารเสริม">
+    <h3>โทโคฟีรอลและโทโคไตรอีนอล</h3>
+    <ul>
+      <li>วิตามินอีธรรมชาติสูง</li>
+      <li>มีคุณสมบัติต้านอนุมูลอิสระ</li>
+      <li>เสริมสุขภาพหัวใจและผิวพรรณ</li>
+      <li>นำไปทำแคปซูลและอาหารเสริม</li>
+      <li>ผลิตตามมาตรฐาน GMP และ HACCP</li>
+    </ul>
+  </div>
+</section>
+<footer>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;color:var(--muted);font-size:14px">
+      <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.tab-button');
+const sections = document.querySelectorAll('.content-grid');
+
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const target = tab.getAttribute('data-tab');
+    sections.forEach(sec=>{
+      if(sec.id===target){sec.style.display='grid';}
+      else{sec.style.display='none';}
+    });
+  });
+});
+</script>
+
+</body>
+</html>

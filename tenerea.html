@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>พันธุ์ปาล์มเทเนอรา — Palm Story</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f3f9f3;
+      --accent:#2e7d32;
+      --accent-dark:#1b5e20;
+      --muted:#5d6d55;
+      --card:#ffffff;
+      font-family: 'Kanit', sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:#222}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* Top bar */
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#a7e57a,#2e7d32);display:grid;place-items:center;box-shadow:0 6px 18px rgba(46,125,50,0.12)}
+    .logo svg{width:36px;height:36px}
+    .brand h1{margin:0;font-size:18px;line-height:1;color:var(--accent-dark)}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+    nav a{text-decoration:none;padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600}
+    nav a.primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(46,125,50,0.18)}
+    nav a:hover{color:var(--accent-dark)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
+    .hero-card{background:linear-gradient(180deg,#fff,#f3f9f3);padding:28px;border-radius:16px;box-shadow:0 10px 30px rgba(18,18,18,0.04)}
+    .hero h2{margin:0 0 8px 0;font-size:28px;color:#1b5e20}
+    .hero p{margin:0 0 16px;color:#3a563f}
+
+    .hero-visual{border-radius:16px;overflow:hidden;box-shadow:0 14px 40px rgba(46,125,50,0.08);background:linear-gradient(180deg,#eafbe8,#ffffff);display:flex;align-items:center;justify-content:center;padding:22px}
+    .hero-visual img{width:100%;height:auto;border-radius:16px;transition: transform 0.3s ease;}
+    .hero-visual img:hover{transform:scale(1.05);}
+
+    /* Content sections */
+    section{margin-top:28px}
+    .content-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(10,10,10,0.03);transition: all 0.3s ease;}
+    .content-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(46,125,50,0.15);}
+    .content-card h3{margin:0 0 10px 0;color:var(--accent-dark)}
+    .content-card p, .content-card li{margin:0 0 8px 0;color:var(--muted);font-size:14px;line-height:1.6}
+    .content-card ul{padding-left:18px;}
+    .step-image{width:90%;max-width:450px;border-radius:12px;margin-top:10px;margin-bottom:8px;box-shadow:0 6px 18px rgba(46,125,50,0.08);transition: transform 0.3s ease;}
+    .step-image:hover{transform:scale(1.03);}
+
+    footer{margin-top:36px;padding:16px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(0,0,0,0.04)}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}}
+    @media (max-width:640px){nav ul{display:none}.container{padding:16px}}
+    .feature-block{
+  display:grid;
+  grid-template-columns: 1fr 260px;
+  gap:22px;
+  align-items:center;
+  padding:20px;
+  border-radius:14px;
+  background:#f9fcf9;
+}
+
+.feature-block + .feature-block{
+  margin-top:18px;
+}
+
+.feature-content h4{
+  margin:0 0 8px 0;
+  font-size:16px;
+  color:var(--accent-dark);
+}
+
+.feature-content p{
+  margin:0 0 10px 0;
+  font-size:14px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+.feature-content ul{
+  padding-left:18px;
+  margin:6px 0 0 0;
+}
+
+.feature-content li{
+  font-size:14px;
+  margin-bottom:6px;
+  color:var(--muted);
+}
+
+.feature-image{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:0 8px 22px rgba(46,125,50,0.12);
+}
+
+@media (max-width:640px){
+  .feature-block{
+    grid-template-columns:1fr;
+  }
+  .feature-image{
+    height:220px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 21s7-8 20-9c0 0-6 4-8 7 0 0-4-2-12 2z" fill="#ffffff" opacity="0.12"/>
+            <path d="M6 18c3-2 6-6 11-8" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+            <path d="M12 3c0 1 2 4 4 5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Palm Story</h1>
+          <p>เรื่องราวของปาล์มน้ำมัน </p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">หน้าแรก</a></li>
+          <li><a href="durra.html">พันธุ์ดูรา</a></li>
+          <li><a href="tenerea.html" class="primary">พันธุ์เทเนอรา</a></li>
+          <li><a href="pisifera.html">พันธุ์พิสิเฟอร่า</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <h2>พันธุ์ปาล์มเทเนอรา</h2>
+          <p>พันธุ์เทเนอรา ต้านทานโรคได้ดี ทนแล้งปานกลาง เหมาะกับพื้นที่ภาคเหนือ ให้ผลผลิตคงที่และน้ำมันคุณภาพสูง</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <img src="https://i.pinimg.com/736x/14/70/43/14704363e501c9f690167362fbc530f7.jpg" alt="พันธุ์เทเนอรา">
+        </div>
+      </section>
+
+      <section>
+       <section>
+  <div class="content-card">
+    <h3>ลักษณะเด่น</h3>
+
+    <div class="feature-block">
+      <div class="feature-content">
+        <h4>ผลผลิตสูงและสม่ำเสมอ</h4>
+        <p>
+          ปาล์มน้ำมันพันธุ์เทเนอราเป็นพันธุ์ลูกผสมระหว่างดูราและพิสิเฟอร่า
+          ซึ่งได้รับการยอมรับว่าให้ผลผลิตสูงและมีความสม่ำเสมอ
+          เหมาะสำหรับการปลูกเชิงพาณิชย์ในระยะยาว
+        </p>
+        <ul>
+          <li>ให้ผลผลิตต่อเนื่องตลอดปี</li>
+          <li>เหมาะกับสวนปาล์มเชิงอุตสาหกรรม</li>
+          <li>ช่วยเพิ่มรายได้ต่อพื้นที่ปลูก</li>
+        </ul>
+      </div>
+      <img class="feature-image"
+           src="https://i.pinimg.com/1200x/45/1e/92/451e92751c1afd0a1dc12a9d622a6cc8.jpg"
+           alt="ผลผลิตปาล์มน้ำมันพันธุ์เทเนอรา">
+    </div>
+
+    <div class="feature-block">
+      <div class="feature-content">
+        <h4>ปริมาณน้ำมันสูง คุณภาพดี</h4>
+        <p>
+          ผลของพันธุ์เทเนอรามีเปลือกบางและมีเนื้อผลหนา
+          ทำให้มีปริมาณน้ำมันสูงกว่าพันธุ์อื่น
+          น้ำมันที่ได้มีคุณภาพสม่ำเสมอ เหมาะกับการแปรรูปเชิงอุตสาหกรรม
+        </p>
+        <ul>
+          <li>เนื้อผลหนา เปลือกบาง</li>
+          <li>ให้น้ำมันต่อทะลายสูง</li>
+          <li>เหมาะสำหรับโรงงานสกัดน้ำมัน</li>
+        </ul>
+      </div>
+      <img class="feature-image"
+           src="https://i.pinimg.com/1200x/11/da/1d/11da1d342a1d866b415b9e0752edc766.jpg"
+           alt="ผลปาล์มน้ำมันพันธุ์เทเนอรา">
+    </div>
+
+    <div class="feature-block">
+      <div class="feature-content">
+        <h4>ทนทานและปรับตัวได้ดี</h4>
+        <p>
+          พันธุ์เทเนอรามีความสามารถในการปรับตัวกับสภาพแวดล้อมได้ดี
+          ทนแล้งในระดับปานกลาง และต้านทานโรคที่พบบ่อยในสวนปาล์ม
+          จึงเหมาะสำหรับพื้นที่ที่มีฝนไม่สม่ำเสมอ
+        </p>
+        <ul>
+          <li>ต้านทานโรคและแมลงศัตรูพืช</li>
+          <li>เหมาะกับหลายสภาพพื้นที่</li>
+          <li>ลดความเสี่ยงด้านการจัดการสวน</li>
+        </ul>
+      </div>
+      <img class="feature-image"
+           src="https://i.pinimg.com/1200x/10/aa/00/10aa00b865876119a0193b1c47514298.jpg"
+           alt="ลำต้นและทรงพุ่มปาล์มน้ำมันพันธุ์เทเนอรา">
+    </div>
+
+  </div>
+</section>
+
+      </section>
+    </main>
+
+   <footer>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;color:var(--muted);font-size:14px">
+      <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

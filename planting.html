@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>การปลูกปาล์มน้ำมัน — Palm Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f9f3;
+  --accent:#2e7d32;
+  --accent-dark:#1b5e20;
+  --muted:#5d6d55;
+  --card:#ffffff;
+  font-family: 'Kanit', sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:#222;scroll-behavior:smooth;overflow-x:hidden}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+
+/* Top bar */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#a7e57a,#2e7d32);display:grid;place-items:center;box-shadow:0 6px 18px rgba(46,125,50,0.12)}
+.logo svg{width:36px;height:36px}
+.brand h1{margin:0;font-size:18px;line-height:1;color:var(--accent-dark)}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+nav a{text-decoration:none;padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600;transition:0.3s}
+nav a.primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(46,125,50,0.18)}
+nav a:hover{color:var(--accent-dark);transform:scale(1.05)}
+
+
+/* ปรับ Hero ให้ตรงกลางและกรอบใหญ่ */
+.hero {
+  display: flex;               /* วาง .hero-card และ .hero-visual เป็น flex */
+  flex-direction: column;      /* ให้เรียงจากบนลงล่าง */
+  align-items: center;         /* กรอบอยู่กลาง */
+  justify-content: center;
+  text-align: center;          /* ข้อความตรงกลาง */
+  background:#ffffff;          /* สีพื้นขาว */
+  border-radius:20px;
+  padding:60px 20px;           /* เพิ่มพื้นที่รอบข้อความ */
+  box-shadow:0 8px 24px rgba(46,125,50,0.15);
+}
+
+/* ปรับ .hero-card */
+/* Hero ปรับขนาดพอดีและข้อความตรงกลาง */
+.hero {
+  display: flex;
+  flex-direction: column;      /* เรียงจากบนลงล่าง */
+  align-items: center;         /* อยู่กลาง */
+  text-align: center;          /* ข้อความตรงกลาง */
+  background:linear-gradient(180deg,#e9f5ea 0%, #ffffff 100%);          
+  border-radius:18px;
+  padding:40px 20px;           /* ลด padding ให้กรอบไม่ใหญ่เกินไป */
+  box-shadow:0 6px 18px rgba(46,125,50,0.12);
+}
+
+/* Hero-card ขนาดพอดี */
+.hero-card {
+  max-width:700px;             /* ขนาดพอดี ไม่กว้างเกินไป */
+  padding:30px 20px;           /* ลด padding ให้พอดี */
+  border-radius:16px;
+  background:linear-gradient(180deg,#fff,#f3f9f3);
+  box-shadow:0 8px 20px rgba(46,125,50,0.12);
+}
+
+/* ข้อความหัวข้อใหญ่ */
+.hero-card h2 {
+  font-size:32px;             /* ลดขนาดหัวข้อ */
+  color:var(--accent-dark);
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+.hero-card p {
+  font-size:16px;             /* ลดขนาดข้อความ */
+  line-height:1.7;
+  color:#3a563f;
+}
+
+/* Content card แสดงทันที ไม่ต้องเลื่อนแล้ว fade-in */
+.content-card {
+  opacity:1;                  /* แสดงทันที */
+  transform:translateY(0);    /* ไม่เลื่อนจากด้านล่าง */
+}
+
+
+
+/* Cards Layout (2x2) */
+section.cards{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:32px 28px;
+}
+@media (max-width:800px){
+  section.cards{grid-template-columns:1fr;}
+}
+a.content-card-link{text-decoration:none;color:inherit;display:block;}
+.content-card{
+  background:var(--card);
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(46,125,50,0.12);
+  transition:all 0.25s ease;
+  cursor:pointer;
+}
+.content-card:hover{
+  transform:translateY(-5px) scale(1.02);
+  box-shadow:0 14px 30px rgba(46,125,50,0.25);
+}
+.content-card h3{
+  margin:0 0 12px 0;
+  color:var(--accent-dark);
+  font-size:22px;
+  font-weight:700;
+}
+.content-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.8;
+}
+.content-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  margin:14px 0;
+  box-shadow:0 6px 18px rgba(46,125,50,0.12);
+}
+
+.hero-card{background:linear-gradient(180deg,#fff,#f3f9f3);padding:28px;border-radius:16px;box-shadow:0 10px 30px rgba(18,18,18,0.06);position:relative;z-index:2}
+.hero h2{margin:0 0 8px 0;font-size:40px;color:var(--accent-dark);text-shadow:0 4px 10px rgba(46,125,50,0.15)}
+.hero p{margin:0 0 16px;color:#3a563f;font-size:16px;line-height:1.7}
+.hero-visual{border-radius:16px;overflow:hidden;box-shadow:0 14px 40px rgba(46,125,50,0.1);background:#fff;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transform:perspective(1000px) rotateY(-5deg);transition:transform 0.6s ease;}
+.hero-visual:hover{transform:perspective(1000px) rotateY(0deg) scale(1.02);}
+.hero-visual img{width:100%;height:auto;border-radius:16px;transition: transform 0.4s ease;}
+.hero-visual img:hover{transform:scale(1.05);}
+
+/* Section cards (ลดจำนวนเหลือ 3 หัวข้อหลัก) */
+section{margin-top:48px}
+.content-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;align-items:stretch}
+.content-card{
+  background:var(--card);
+  padding:24px;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(10,10,10,0.05);
+  transition: all 0.4s ease;
+  opacity:0;
+  transform:translateY(40px);
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+.content-card.visible{opacity:1;transform:translateY(0);}
+.content-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 28px rgba(46,125,50,0.15);}
+.content-card img{width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:16px}
+.content-card h3{margin:0 0 10px 0;color:var(--accent-dark);font-size:22px}
+.content-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.7}
+
+/* Gallery */
+.gallery-section{margin-top:60px;text-align:center}
+.gallery-section h3{color:var(--accent-dark);font-size:24px;margin-bottom:14px}
+.gallery-slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+}
+
+.gallery-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-slider .slide {
+  flex: 0 0 280px; /* ความกว้างภาพแต่ละภาพ */
+  scroll-snap-align: center; /* snap ให้ตรงกลาง */
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.gallery-slider .slide:hover {
+  transform: scale(1.05);
+}
+
+.gallery-slider img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+}
+
+.gallery-slider .slide{flex:0 0 280px;border-radius:14px;overflow:hidden;scroll-snap-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.08);transition:transform 0.3s ease;}
+.gallery-slider .slide:hover{transform:scale(1.05);}
+.gallery-slider img{width:100%;height:200px;object-fit:cover;}
+
+/* Footer */
+footer{margin-top:36px;padding:16px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(0,0,0,0.04)}
+
+/* Back to Top */
+#backToTop{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  z-index:999;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  font-size:24px;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(46,125,50,0.3);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s ease;
+}
+#backToTop:hover{
+  background:var(--accent-dark);
+  transform:translateY(-4px);
+}
+
+/* Responsive */
+@media (max-width:980px){.hero{grid-template-columns:1fr;}}
+@media (max-width:640px){nav ul{display:none}.container{padding:16px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 21s7-8 20-9c0 0-6 4-8 7 0 0-4-2-12 2z" fill="#ffffff" opacity="0.12"/>
+          <path d="M6 18c3-2 6-6 11-8" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+          <path d="M12 3c0 1 2 4 4 5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Palm Story</h1>
+        <p>เรื่องราวของปาล์มน้ำมัน </p>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="history.html">ประวัติ</a></li>
+        <li><a href="planting.html" class="primary">การปลูก</a></li>
+        <li><a href="processing.html">แปรรูป</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <h2>การปลูกปาล์มน้ำมัน</h2>
+        <p>รวมแนวทางสำคัญของการปลูกปาล์ม ตั้งแต่การเตรียมพื้นที่ การปลูกต้นกล้า ไปจนถึงการดูแลและเก็บเกี่ยว เพื่อให้ได้ผลผลิตคุณภาพสูงอย่างยั่งยืน</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+    </section>
+
+    <section>
+      <div class="content-grid">
+        <a href="prepare.html" class="content-card">
+          <img src="C:\Users\asus\Downloads\ChatGPT Image Oct 29, 2025, 09_43_43 PM.png" alt="">
+          <h3>การเตรียมพื้นที่และพันธุ์</h3>
+          <p>เริ่มต้นด้วยการเลือกพื้นที่ที่ดินร่วน ระบายน้ำดี และเลือกพันธุ์ที่เหมาะกับสภาพภูมิอากาศ เช่น เทเนอรา พร้อมปรับดินด้วยปุ๋ยอินทรีย์และกำจัดวัชพืชให้สะอาดก่อนปลูก</p>
+        </a>
+
+        <a href="care.html" class="content-card">
+          <img src="C:\Users\asus\Downloads\ChatGPT Image Oct 30, 2025, 11_17_42 AM.png" alt="">
+          <h3>การปลูกและการดูแล</h3>
+          <p>ปลูกต้นกล้าในระยะห่างที่เหมาะสม รดน้ำสม่ำเสมอ ใส่ปุ๋ยตามช่วงอายุ และควบคุมศัตรูพืชด้วยวิธีธรรมชาติ เพื่อให้ต้นปาล์มแข็งแรงและให้ผลผลิตต่อเนื่อง</p>
+        </a>
+
+        <a href="harvest.html" class="content-card">
+          <img src="C:\Users\asus\Downloads\51634.jpg" alt="">
+          <h3>การเก็บเกี่ยวและการจัดการผลผลิต</h3>
+          <p>เมื่อทะลายผลเริ่มสุกเต็มที่ ให้ตัดอย่างระมัดระวังเพื่อรักษาคุณภาพน้ำมัน ปาล์มที่สุกพอดีจะมีน้ำมันมากและเหมาะต่อการแปรรูปเชิงพาณิชย์</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+  <h3>ภาพบรรยากาศการปลูกปาล์มน้ำมัน</h3>
+
+  <div class="gallery-scroll">
+    <div class="slide"><img src="C:\Users\asus\Pictures\รูป\54862_0.jpg" alt=""></div>
+    <div class="slide"><img src="C:\Users\asus\Pictures\รูป\54860_0.jpg" alt=""></div>
+    <div class="slide"><img src="C:\Users\asus\Pictures\รูป\54854_0.jpg" alt=""></div>
+    <div class="slide"><img src="C:\Users\asus\Pictures\รูป\54859_0.jpg" alt=""></div>
+    <div class="slide"><img src="C:\Users\asus\Pictures\รูป\54855_0.jpg" alt=""></div>
+  </div>
+</section>
+
+<style>
+.gallery-section {
+  margin-top: 20px;
+}
+
+.gallery-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;       /* เลื่อนซ้าย–ขวาได้ */
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  height: 8px; /* ความสูงของแถบเลื่อน */
+}
+
+.gallery-scroll::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+
+.gallery-scroll img {
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+</style>
+
+
+ <footer>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;color:var(--muted);font-size:14px">
+      <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+    </div>
+  </footer>
+</div>
+
+<button id="backToTop" title="กลับขึ้นบน">↑</button>
+
+<script>
+// Fade-in effect for cards
+const cards = document.querySelectorAll('.content-card');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+},{threshold:0.2});
+cards.forEach(c=>observer.observe(c));
+
+// Back to Top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', ()=> {
+  if(window.scrollY > 300){ backToTop.style.display='flex'; }
+  else { backToTop.style.display='none'; }
+});
+backToTop.addEventListener('click', ()=>{ window.scrollTo({top:0, behavior:'smooth'}); });
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>การพัฒนาอย่างยั่งยืน — Palm Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f9f3;
+  --accent:#2e7d32;
+  --accent-dark:#1b5e20;
+  --muted:#5d6d55;
+  --card:#ffffff;
+  font-family: 'Kanit', sans-serif;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#ffffff);
+  color:#222;
+  line-height:1.8;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+
+/* Topbar */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  position:relative;
+  z-index:10;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{
+  width:54px;height:54px;border-radius:12px;
+  background:linear-gradient(135deg,#a7e57a,#2e7d32);
+  display:grid;place-items:center;
+  box-shadow:0 6px 18px rgba(46,125,50,0.12)
+}
+.logo svg{width:36px;height:36px}
+.brand h1{margin:0;font-size:18px;color:var(--accent-dark)}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+nav a{
+  text-decoration:none;padding:8px 14px;border-radius:8px;
+  color:var(--muted);font-weight:600;transition:0.3s
+}
+nav a.primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(46,125,50,0.18)}
+nav a:hover{color:var(--accent-dark)}
+
+/* Hero */
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px;position:relative;z-index:1}
+.hero-card{background:linear-gradient(180deg,#eafbe8,#ffffff);padding:28px;border-radius:16px;box-shadow:0 10px 30px rgba(46,125,50,0.15);position:relative;z-index:2}
+.hero h2{margin:0 0 12px 0;font-size:28px;color:var(--accent-dark)}
+.hero p{margin:0;color:#3a563f;font-size:15px;line-height:1.8;}
+
+/* Hero Visual */
+.hero-visual{border-radius:16px;overflow:hidden;box-shadow:0 14px 40px rgba(46,125,50,0.1);background:linear-gradient(180deg,#eafbe8,#ffffff);display:flex;align-items:center;justify-content:center;padding:22px;position:relative;z-index:2}
+.hero-visual img{width:100%;height:auto;border-radius:16px;transition: transform 0.3s ease;}
+.hero-visual img:hover{transform:scale(1.05);}
+.img-caption{font-size:13px;color:var(--muted);margin-top:6px;text-align:center;line-height:1.4;}
+
+/* Responsive */
+@media (max-width:980px){.hero{grid-template-columns:1fr;} .hero-visual{margin-top:20px;}}
+
+/* Section BG alternate */
+.section-alt{background:#f8fcf8;padding:40px 0;border-radius:18px;margin-top:40px}
+
+/* Content Card */
+.content-card{
+  background:var(--card);
+  padding:24px;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(46,125,50,0.12);
+  transition:all 0.3s ease;
+  margin:24px 0;
+}
+
+.content-card.visible{opacity:1;transform:translateY(0);}
+.content-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 30px rgba(46,125,50,0.25);}
+.content-card h3{margin:0 0 12px 0;color:var(--accent-dark);font-size:24px;}
+.content-card p{margin:12px 0;color:var(--muted);font-size:17px;}
+.content-card img{
+  width:100%;height:260px;object-fit:cover;border-radius:14px;
+  margin:16px 0;box-shadow:0 6px 18px rgba(46,125,50,0.15);
+}
+
+/* Footer */
+footer{
+  margin-top:60px;padding:20px 0;color:var(--muted);
+  font-size:14px;border-top:1px solid rgba(0,0,0,0.05)
+}
+
+/* Back to Top */
+#backToTop{
+  position:fixed;bottom:30px;right:30px;z-index:999;
+  background:var(--accent);color:#fff;border:none;border-radius:50%;
+  width:50px;height:50px;font-size:24px;cursor:pointer;
+  box-shadow:0 6px 20px rgba(46,125,50,0.3);
+  display:none;align-items:center;justify-content:center;
+  transition:all 0.3s ease;
+}
+#backToTop:hover{background:var(--accent-dark);transform:translateY(-4px);}
+
+/* Fade Animation */
+@keyframes fadeUp {
+  from {opacity:0;transform:translateY(30px);}
+  to {opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 21s7-8 20-9c0 0-6 4-8 7 0 0-4-2-12 2z" fill="#ffffff" opacity="0.12"/>
+          <path d="M6 18c3-2 6-6 11-8" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+          <path d="M12 3c0 1 2 4 4 5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Palm Story</h1>
+        <p>เรื่องราวของปาล์มน้ำมัน </p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="history.html">ประวัติ</a></li>
+        <li><a href="origins.html">ต้นกำเนิด</a></li>
+        <li><a href="expansion.html">ขยายสู่เอเชีย</a></li>
+        <li><a href="thailand.html">บทบาทในไทย</a></li>
+        <li><a href="sustainable.html" class="primary">การพัฒนาอย่างยั่งยืน</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+ <!-- HERO -->
+<section class="hero">
+  <div class="hero-card">
+    <h2>การพัฒนาอย่างยั่งยืนของปาล์มน้ำมัน</h2>
+    <p>แนวทางการพัฒนาอุตสาหกรรมปาล์มน้ำมันที่ให้ความสำคัญต่อสิ่งแวดล้อม เศรษฐกิจ และชุมชนท้องถิ่น เพื่อให้เกิดความสมดุลระหว่างการผลิตและการอนุรักษ์อย่างแท้จริง</p>
+  </div>
+
+  <!-- HERO VISUAL -->
+  <div class="hero-visual">
+    <div class="img-box">
+      <img src="https://www.asianagri.com/wp-content/uploads/2018/04/technology-in-oil-palm-plantation.png" alt="เทคโนโลยีและการปลูกปาล์มอย่างยั่งยืน">
+      <p class="img-caption">
+        การใช้เทคโนโลยีและแนวทางปลูกปาล์มที่เป็นมิตรต่อสิ่งแวดล้อม เช่น การใช้โดรนตรวจสอบสวนและระบบน้ำอัจฉริยะ
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section>
+      <div class="content-card">
+        <h3>แนวทางการปลูกอย่างยั่งยืน</h3>
+        <img src="C:\Users\asus\Downloads\Gemini_Generated_Image_mr0f4gmr0f4gmr0f.png" alt="ปาล์มยั่งยืน">
+        <p>การปลูกปาล์มน้ำมันอย่างยั่งยืนเริ่มจากการเลือกใช้พื้นที่เกษตรเดิมที่เหมาะสม โดยไม่บุกรุกป่าอนุรักษ์หรือพื้นที่ระบบนิเวศสำคัญ ควบคู่กับการจัดการดินและน้ำอย่างเหมาะสม ลดการใช้สารเคมี และส่งเสริมการใช้ปุ๋ยอินทรีย์หรือพืชคลุมดิน เพื่อรักษาความอุดมสมบูรณ์ของดินในระยะยาว นอกจากนี้ การปลูกพืชร่วมยังช่วยเพิ่มรายได้และลดความเสี่ยงให้เกษตรกร</p>
+      </div>
+
+      <div class="content-card">
+        <h3>เทคโนโลยีและนวัตกรรม</h3>
+        <img src="C:\Users\asus\Downloads\Gemini_Generated_Image_9f26l69f26l69f26.png" alt="เทคโนโลยีปาล์ม">
+        <p>เทคโนโลยีสมัยใหม่มีบทบาทสำคัญในการเพิ่มประสิทธิภาพการผลิตปาล์มน้ำมันอย่างยั่งยืน เช่น การใช้โดรนและระบบ IoT เพื่อตรวจสอบสุขภาพพืชและบริหารจัดการน้ำอย่างแม่นยำ ช่วยลดต้นทุนและการใช้ทรัพยากรเกินจำเป็น ในภาคอุตสาหกรรม ยังมีการนำของเสียจากการผลิตกลับมาใช้เป็นพลังงานหมุนเวียน เพื่อลดผลกระทบต่อสิ่งแวดล้อมและการปล่อยก๊าซเรือนกระจก</p>
+      </div>
+    </section>
+
+    <section class="section-alt">
+      <div class="container">
+        <div class="content-card">
+          <h3>ผลกระทบเชิงบวกต่อชุมชน</h3>
+          <img src="C:\Users\asus\Downloads\Gemini_Generated_Image_v4kto9v4kto9v4kt.png" alt="ชุมชนปาล์ม">
+          <p>การพัฒนาอย่างยั่งยืนช่วยยกระดับคุณภาพชีวิตของเกษตรกรและชุมชนท้องถิ่น ผ่านการส่งเสริมความรู้ การรวมกลุ่มเป็นสหกรณ์ และการเข้าถึงตลาดอย่างเป็นธรรม นอกจากนี้ การถ่ายทอดเทคโนโลยีและแนวคิดเกษตรสมัยใหม่ให้กับคนรุ่นใหม่ ยังช่วยสร้างโอกาสทางอาชีพและความมั่นคงด้านรายได้ในระยะยาวให้กับชุมชนชนบท</p>
+        </div>
+
+        <div class="content-card">
+          <h3>มาตรฐานสากลและการรับรอง</h3>
+          <img src="C:\Users\asus\Downloads\Gemini_Generated_Image_f56i3kf56i3kf56i.png" alt="RSPO certification">
+          <p>อุตสาหกรรมปาล์มน้ำมันได้พัฒนามาตรฐานรับรองความยั่งยืน เช่น RSPO และ TSPO เพื่อรับประกันว่าการผลิตไม่ทำลายสิ่งแวดล้อม เคารพสิทธิแรงงาน และคำนึงถึงชุมชนท้องถิ่น การได้รับการรับรองเหล่านี้ช่วยเพิ่มความเชื่อมั่นให้ผู้บริโภค เปิดโอกาสสู่ตลาดโลก และยกระดับอุตสาหกรรมปาล์มน้ำมันไทยให้แข่งขันได้ในระดับสากล</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+ <footer>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;color:var(--muted);font-size:14px">
+      <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Back to Top -->
+<button id="backToTop" title="กลับขึ้นบน">↑</button>
+
+<script>
+// Back to Top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', ()=>{
+  if(window.scrollY > 300){ backToTop.style.display='flex'; }
+  else { backToTop.style.display='none'; }
+});
+backToTop.addEventListener('click', ()=>{ window.scrollTo({top:0, behavior:'smooth'}); });
+
+// Fade-in on scroll
+const cards = document.querySelectorAll('.content-card');
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight * 0.85;
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < trigger){ card.classList.add('visible'); }
+  });
+});
+</script>
+</body>
+</html>

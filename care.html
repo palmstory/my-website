@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>การปลูกและการดูแล — Palm Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f3f9f3;
+  --accent:#2e7d32;
+  --accent-dark:#1b5e20;
+  --muted:#5d6d55;
+  --card:#ffffff;
+  font-family:'Kanit',sans-serif;
+}
+
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:#222;scroll-behavior:smooth;}
+.container{max-width:1100px;margin:0 auto;padding:24px;}
+
+/* HEADER */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#a7e57a,#2e7d32);display:grid;place-items:center;box-shadow:0 6px 18px rgba(46,125,50,0.12)}
+.logo svg{width:36px;height:36px}
+.brand h1{margin:0;font-size:18px;color:var(--accent-dark)}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+nav a{text-decoration:none;padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600;transition:0.3s;}
+nav a.primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(46,125,50,0.18)}
+nav a:hover{color:var(--accent-dark)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;margin-top:18px}
+.hero-card{background:linear-gradient(180deg,#fff,#f3f9f3);padding:28px;border-radius:16px;box-shadow:0 10px 30px rgba(18,18,18,0.04)}
+.hero h2{margin:0 0 12px;font-size:28px;color:#1b5e20}
+.hero p{margin:0 0 16px;color:#3a563f;font-size:15px;line-height:1.6}
+.hero-visual{border-radius:16px;overflow:hidden;box-shadow:0 14px 40px rgba(46,125,50,0.08);background:linear-gradient(180deg,#eafbe8,#ffffff);padding:22px;display:flex;justify-content:center;}
+.hero-visual img{width:100%;border-radius:16px;transition:0.3s;max-height:420px;object-fit:cover;}
+.hero-visual img:hover{transform:scale(1.05);}
+
+/* SECTION TITLE */
+.section-title{
+  margin-top:48px;
+  font-size:26px;
+  color:var(--accent-dark);
+  text-align:center;
+  margin-bottom:18px;
+  font-weight:700;
+}
+
+/* CONTENT BLOCK */
+.content-list{display:flex;flex-direction:column;gap:60px;margin-top:20px;}
+.content-block{display:flex;gap:32px;align-items:flex-start;}
+.content-block:nth-child(even){flex-direction:row-reverse;}
+
+.content-image img{
+  width:100%;
+  max-width:520px;
+  border-radius:16px;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  box-shadow:0 10px 28px rgba(10,10,10,0.08);
+}
+
+.content-text{
+  flex:1;
+  background:var(--card);
+  padding:28px;
+  border-radius:16px;
+  box-shadow:0 10px 28px rgba(10,10,10,0.05);
+  border-top:6px solid var(--accent);
+}
+
+.content-text h3{margin:0 0 12px;color:var(--accent-dark);}
+.content-text p{margin:0 0 14px;color:var(--muted);line-height:1.75;font-size:15px;}
+
+@media(max-width:780px){
+  .content-block{flex-direction:column !important;}
+  .content-image img{max-width:100%;}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<header class="topbar">
+<div class="brand">
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M2 21s7-8 20-9c0 0-6 4-8 7 0 0-4-2-12 2z" fill="#fff" opacity="0.2"/>
+      <path d="M6 18c3-2 6-6 11-8" stroke="#fff" stroke-width="1.2" opacity="0.8"/>
+      <path d="M12 3c0 1 2 4 4 5" stroke="#fff" stroke-width="1.2"/>
+    </svg>
+  </div>
+  <div>
+    <h1>Palm Story</h1>
+    <p>เรื่องราวของปาล์มน้ำมัน</p>
+  </div>
+</div>
+
+<nav>
+<ul>
+  <li><a href="planting.html">การปลูก</a></li>
+  <li><a href="prepare.html">การเตรียมพื้นที่</a></li>
+  <li><a href="care.html" class="primary">การดูแล</a></li>
+  <li><a href="harvest.html">เก็บเกี่ยว</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- HERO -->
+<main>
+<section class="hero">
+  <div class="hero-card">
+    <h2>การปลูกและการดูแล</h2>
+    <p>
+      การดูแลปาล์มน้ำมันอย่างถูกวิธีตั้งแต่เริ่มปลูกจนถึงระยะให้ผลผลิต มีผลต่อคุณภาพและปริมาณน้ำมันโดยตรง ตั้งแต่การจัดการวัชพืช การให้ปุ๋ย การตัดแต่งทางใบ ไปจนถึงการควบคุมศัตรูพืชอย่างเป็นระบบ
+    </p>
+  
+  </div>
+</section>
+
+<!-- SECTION -->
+<h2 class="section-title">ขั้นตอนการปลูกและการดูแลปาล์มน้ำมัน</h2>
+
+<div class="content-list">
+
+  <!-- ROW 1 -->
+  <div class="content-block">
+    <div class="content-image">
+      <img src="https://oilpalmindia.com/wp-content/uploads/2017/11/wh.jpg">
+    </div>
+    <div class="content-text">
+      <h3>ระยะปลูกและการปลูกต้นกล้า</h3>
+      <p>การกำหนดระยะปลูกที่เหมาะสมช่วยให้ต้นปาล์มน้ำมันได้รับแสงแดดอย่างทั่วถึงและเติบโตได้เต็มที่ โดยควรใช้ระยะปลูกประมาณ 9 x 9 เมตร หรือคิดเป็น 20–25 ต้นต่อไร่ การปลูกควรทำในช่วงต้นฤดูฝน เพื่อให้ต้นกล้าตั้งตัวได้ดี ขุดหลุมขนาดประมาณ 60 x 60 x 60 เซนติเมตร รองก้นหลุมด้วยปุ๋ยคอกหรือปุ๋ยหมัก แล้วนำต้นกล้าอายุ 10–12 เดือน ลงปลูก กลบดินและกดให้แน่นพอเหมาะ</p>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="content-block">
+    <div class="content-image">
+      <img src="C:\Users\asus\Pictures\รูป\54861_0.jpg">
+    </div>
+    <div class="content-text">
+      <h3>การให้น้ำ</h3>
+      <p>ปาล์มน้ำมันต้องการน้ำอย่างสม่ำเสมอ โดยเฉพาะในระยะต้นกล้า ควรรดน้ำให้ดินชุ่มแต่ไม่แฉะ เพื่อช่วยให้รากแผ่ขยายและลดการตายของต้น สำหรับต้นที่เข้าสู่ระยะให้ผลผลิตแล้ว หากอยู่ในพื้นที่ที่มีฝนไม่เพียงพอ ควรจัดระบบน้ำเพื่อรักษาความชื้นในดิน การให้น้ำที่เหมาะสมช่วยให้ทะลายสมบูรณ์ ผลผลิตเพิ่มขึ้น และลดการร่วงของผลอ่อน</p>
+    </div>
+  </div>
+
+  <!-- ROW 3 -->
+  <div class="content-block">
+    <div class="content-image">
+      <img src="C:\Users\asus\Pictures\รูป\13620242_1687223718206035_3046988255512053177_n.jpg">
+    </div>
+    <div class="content-text">
+      <h3>การใส่ปุ๋ยและบำรุงต้น</h3>
+      <p>การใส่ปุ๋ยที่ถูกต้องช่วยเพิ่มการเจริญเติบโตและผลผลิตของปาล์มน้ำมัน ควรพิจารณาใส่ปุ๋ยตามอายุของต้น ปาล์มอายุน้อยควรใช้ปุ๋ยสูตรเสมอเพื่อเร่งการเจริญเติบโต เมื่อเข้าสู่ระยะให้ผลผลิตควรใช้ปุ๋ยที่มีโพแทสเซียมสูง และใส่เป็นระยะรอบทรงพุ่ม เพื่อให้ต้นได้รับธาตุอาหารอย่างทั่วถึงและช่วยเพิ่มคุณภาพน้ำมัน</p>
+    </div>
+  </div>
+
+  <!-- ROW 4 -->
+  <div class="content-block">
+    <div class="content-image">
+      <img src="C:\Users\asus\Pictures\รูป\54857_0.jpg">
+    </div>
+    <div class="content-text">
+      <h3>การกำจัดวัชพืช</h3>
+      <p>วัชพืชเป็นปัจจัยที่แย่งน้ำและธาตุอาหารจากต้นปาล์ม โดยเฉพาะในช่วงต้นอายุ การกำจัดวัชพืชควรทำอย่างสม่ำเสมอรอบโคนต้น สามารถใช้การตัดหญ้า การถอน หรือวิธีอื่นที่เหมาะสม นอกจากนี้การปลูกพืชคลุมดินยังช่วยลดการเกิดวัชพืช รักษาความชื้นในดิน และเพิ่มอินทรียวัตถุ ทำให้ดินมีความอุดมสมบูรณ์มากขึ้นในระยะยาว</p>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;color:var(--muted);font-size:14px;margin-top:40px">
+    <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
