@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>การเตรียมพื้นที่และพันธุ์ — Palm Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f9f3;
+  --accent:#2e7d32;
+  --accent-dark:#1b5e20;
+  --muted:#5d6d55;
+  --card:#ffffff;
+  font-family:'Kanit',sans-serif;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#222;
+  scroll-behavior:smooth;
+  font-size:17px;   /* 🔥 จากเดิม implicit ~14–15px */
+}
+
+.container{max-width:1100px;margin:0 auto;padding:24px;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#a7e57a,#2e7d32);display:grid;place-items:center;box-shadow:0 6px 18px rgba(46,125,50,0.12)}
+.logo svg{width:36px;height:36px}
+.brand h1{margin:0;font-size:18px;color:var(--accent-dark)}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+nav a{text-decoration:none;padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600;transition:0.3s;}
+nav a.primary{
+  background:var(--accent);
+  color:#fff;
+  box-shadow:0 6px 18px rgba(46,125,50,0.18);
+}
+
+nav a:hover{color:var(--accent-dark)}
+.hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;margin-top:18px}
+.hero-card{background:linear-gradient(180deg,#fff,#f3f9f3);padding:28px;border-radius:16px;box-shadow:0 10px 30px rgba(18,18,18,0.04)}
+.hero h2{margin:0 0 12px;font-size:28px;color:#1b5e20}
+.hero p{margin:0 0 16px;color:#3a563f;font-size:15px;line-height:1.6}
+.hero-visual{border-radius:16px;overflow:hidden;box-shadow:0 14px 40px rgba(46,125,50,0.08);background:linear-gradient(180deg,#eafbe8,#ffffff);padding:22px;display:flex;justify-content:center;}
+.hero-visual img{width:100%;border-radius:16px;transition:0.3s;max-height:420px;object-fit:cover;}
+.hero-visual img:hover{transform:scale(1.05);}
+
+.section-title{
+  margin-top:48px;
+  font-size:26px;
+  color:var(--accent-dark);
+  text-align:center;
+  margin-bottom:18px;
+  font-weight:700;
+}
+
+/* CONTENT BLOCK — IMAGE + TEXT STACK WITH ALTERNATING SIDES */
+.content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 20px;
+}
+
+/* โครงหลัก: แบบ 2 คอลัมน์ แต่จะสลับซ้ายขวา */
+.content-block {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.content-block:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.content-image img {
+  width: 100%;
+  max-width: 520px;    /* 🔥 เพิ่มขนาดรูปให้ใหญ่ขึ้น */
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 4/3;   /* 🔥 ช่วยให้รูปเสถียร */
+  box-shadow: 0 10px 28px rgba(10,10,10,0.08);
+}
+
+.content-text {
+  flex: 1;
+  background: var(--card);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(10,10,10,0.05);
+  border-top: 6px solid var(--accent);
+}
+
+.content-text h3 {
+  margin: 0 0 12px;
+  color: var(--accent-dark);
+}
+
+.content-text p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 780px) {
+  .content-block {
+    flex-direction: column !important;
+  }
+  
+  .content-image img {
+    max-width: 100%;
+  }
+}
+/* Back to Top */
+#backToTop{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  z-index:999;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  font-size:24px;
+  cursor:pointer;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 20px rgba(46,125,50,0.3);
+  transition:all 0.3s ease;
+}
+#backToTop:hover{
+  background:var(--accent-dark);
+  transform:translateY(-4px);
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="topbar">
+<div class="brand">
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M2 21s7-8 20-9c0 0-6 4-8 7 0 0-4-2-12 2z" fill="#fff" opacity="0.2"/>
+      <path d="M6 18c3-2 6-6 11-8" stroke="#fff" stroke-width="1.2" opacity="0.8"/>
+      <path d="M12 3c0 1 2 4 4 5" stroke="#fff" stroke-width="1.2"/>
+    </svg>
+  </div>
+  <div>
+    <h1>Palm Story</h1>
+    <p>เรื่องราวของปาล์มน้ำมัน </p>
+  </div>
+</div>
+<nav>
+<ul>
+  <li><a href="planting.html">การปลูก</a></li>
+  <li><a href="prepare.html" class="primary">การเตรียมพื้นที่</a></li>
+  <li><a href="care.html">การดูแล</a></li>
+  <li><a href="harvest.html"> เก็บเกี่ยว</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- HERO -->
+<main>
+<section class="hero">
+  <div class="hero-card">
+    <h2>การเตรียมพื้นที่และพันธุ์</h2>
+    <p>
+      การปลูกปาล์มน้ำมันให้ได้ผลผลิตดี เริ่มต้นจากพื้นฐานที่ถูกต้อง พื้นที่ต้องระบายน้ำดี ดินร่วนปนทราย และได้รับแสงแดดเต็มวัน เพื่อให้รากเติบโตแข็งแรงและต้นตั้งตัวเร็ว ขณะเดียวกัน การเลือกพันธุ์ก็สำคัญมาก โดยพันธุ์ลูกผสมเทเนอร่า (Tenera) เป็นที่นิยม เพราะให้ทะลายใหญ่และน้ำมันสูง
+    </p>
+  </div>
+</section>
+
+<!-- SECTION -->
+<h2 class="section-title">ขั้นตอนการเก็บเกี่ยวผลปาล์มน้ำมัน</h2>
+<div class="content-list">
+
+  <!-- ROW 1 -->
+  <div class="content-block">
+    <div class="content-image">
+      <img src="C:\Users\asus\Pictures\รูป\54852_0.jpg">
+    </div>
+    <div class="content-text">
+      <h3>การเลือกพื้นที่ที่เหมาะสม</h3>
+      <p>พื้นที่ปลูกปาล์มน้ำมันควรมีฝนตกสม่ำเสมอทั้งปี ปริมาณน้ำฝนเฉลี่ย 2,000–2,500 มิลลิเมตรต่อปี ไม่มีช่วงแล้งยาว และได้รับแสงแดดเต็มวัน เพื่อช่วยให้ต้นปาล์มเจริญเติบโตแข็งแรงและให้ผลผลิตดีในระยะยาว</p>
+
+<h3>การประเมินพื้นที่</h3>
+<p>ก่อนปลูกควรตรวจสอบชนิดดินและค่าความเป็นกรด-ด่าง โดยดินที่เหมาะสมควรมีค่า pH ประมาณ 4.0–6.5 ไม่เป็นดินเหนียวหรือดินทรายจัดเกินไป และควรมีระดับน้ำใต้ดินลึกกว่า 60 เซนติเมตร เพื่อป้องกันน้ำขังและปัญหารากเน่า</p>
+    </div>
+  </div>
+
+  <!-- ROW 2 (REVERSED) -->
+   <div class="content-block">
+
+    <div class="content-image">
+      <img src="C:\Users\asus\Pictures\รูป\54858_0.jpg">
+    </div>
+    <div class="content-text">
+      <h3>การเตรียมดิน</h3>
+      <p>การเตรียมดินที่ดีช่วยให้รากปาล์มเจริญได้เต็มที่ ควรไถพรวนดินลึกประมาณ 30–40 เซนติเมตร เพื่อปรับโครงสร้างดินให้ร่วนซุย พร้อมกำจัดวัชพืชและเศษซากพืชที่อาจเป็นแหล่งสะสมโรค</p>
+<h3>การปรับสภาพดิน</h3>
+<p>หากดินมีความเป็นกรดสูง ควรใส่ปูนขาวหรือโดโลไมท์เพื่อปรับค่า pH ร่วมกับการใส่ปุ๋ยคอกหรือปุ๋ยหมัก เพื่อเพิ่มอินทรียวัตถุ และควรจัดระบบระบายน้ำให้ดีเพื่อป้องกันน้ำท่วมขังในฤดูฝน</p>
+    </div>
+  </div>
+
+  <!-- ROW 3 -->
+   <div class="content-block">
+
+    <div class="content-image">
+      <img src=https://www.prachachat.net/wp-content/uploads/2022/01/%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%9B%E0%B8%B2%E0%B8%A5%E0%B9%8C%E0%B8%A1.jpg>
+    </div>
+    <div class="content-text">
+      <h3>การเลือกพันธุ์ที่เหมาะสม</h3>
+      <p>พันธุ์ปาล์มน้ำมันที่นิยมมากที่สุดคือพันธุ์เทเนอร่า (Tenera) ซึ่งให้ผลผลิตสูง เนื้อหนา และมีปริมาณน้ำมันมาก เหมาะสำหรับการปลูกเชิงเศรษฐกิจและให้ผลตอบแทนดี</p>
+
+<h3>การเลือกเมล็ดพันธุ์</h3>
+<p>ควรเลือกเมล็ดพันธุ์จากแหล่งที่ได้รับการรับรอง เพื่อให้ได้พันธุ์แท้และมีคุณภาพ เมล็ดควรผ่านการบ่มและเพาะในถุงชำจนต้นกล้าแข็งแรง อายุประมาณ 10–12 เดือน ก่อนนำลงปลูกในแปลงจริง</p>
+    </div>
+  </div>
+
+  <!-- ROW 4 (REVERSED) -->
+   <div class="content-block">
+
+    <div class="content-image">
+      <img src=C:\Users\asus\Downloads\Gemini_Generated_Image_qrfbb5qrfbb5qrfb.png>
+    </div>
+    <div class="content-text">
+      <h3>การจัดการพื้นที่ก่อนปลูก</h3>
+      <p>การวางแผนพื้นที่ปลูกที่ดีช่วยให้ดูแลสวนได้ง่ายและใช้พื้นที่ได้อย่างคุ้มค่า ควรกำหนดระยะปลูกให้เหมาะสมและจัดระบบพื้นที่ให้สอดคล้องกับสภาพแวดล้อม</p>
+
+<h3>การวางแปลง</h3>
+<p>ควรกำหนดระยะปลูกปาล์มน้ำมันประมาณ 9 x 9 เมตร หรือ 20–25 ต้นต่อไร่ และจัดเรียงต้นแบบ สามเหลี่ยมด้านเท่า เพื่อให้ได้รับแสงแดดอย่างทั่วถึงและดูแลรักษาง่าย หากพื้นที่ลาดชันควรปลูกตามแนวระดับและจัดทำระบบระบายน้ำเพื่อป้องกันน้ำขัง ก่อนปลูกขุดหลุมลึกประมาณ 60 เซนติเมตร ใส่ปุ๋ยคอกผสมดินและพักหลุมไว้ก่อนปลูก</p>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<footer>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;color:var(--muted);font-size:14px">
+      <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+    </div>
+</footer>
+
+
+</div>
+<button id="backToTop" aria-label="กลับขึ้นด้านบน">↑</button>
+<script>
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+
+</body>
+</html>
