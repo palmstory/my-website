@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ประวัติปาล์มน้ำมัน — Palm Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f9f3;
+  --accent:#2e7d32;
+  --accent-dark:#1b5e20;
+  --muted:#5d6d55;
+  --card:#ffffff;
+  font-family:'Kanit',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#ffffff);
+  color:#222;
+  line-height:1.8;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+
+/* Topbar */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#a7e57a,#2e7d32);display:grid;place-items:center;box-shadow:0 6px 18px rgba(46,125,50,0.12)}
+.logo svg{width:36px;height:36px}
+.brand h1{margin:0;font-size:18px;color:var(--accent-dark)}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+nav ul{list-style:none;display:flex;gap:14px;align-items:center}
+nav a{text-decoration:none;padding:8px 14px;border-radius:8px;color:var(--muted);font-weight:600;transition:0.3s}
+nav a.primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(46,125,50,0.18)}
+nav a:hover{color:var(--accent-dark)}
+
+/* Hero */
+.hero{
+  margin-top:28px;
+  text-align:center;
+  background:linear-gradient(180deg,#e9f5ea 0%, #ffffff 100%);
+  border-radius:18px;
+  padding:60px 20px 70px;
+  box-shadow:0 8px 24px rgba(46,125,50,0.1);
+}
+.hero h2{
+  font-size:42px;
+  color:var(--accent-dark);
+  font-weight:700;
+  margin-bottom:16px;
+}
+.hero p{
+  color:#3a563f;
+  font-size:17px;
+  line-height:1.8;
+  max-width:700px;
+  margin:0 auto;
+}
+
+/* Cards Layout (2x2) */
+section.cards{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:32px 28px;
+}
+@media (max-width:800px){
+  section.cards{grid-template-columns:1fr;}
+}
+a.content-card-link{text-decoration:none;color:inherit;display:block;}
+.content-card{
+  background:var(--card);
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(46,125,50,0.12);
+  transition:all 0.25s ease;
+  cursor:pointer;
+}
+.content-card:hover{
+  transform:translateY(-5px) scale(1.02);
+  box-shadow:0 14px 30px rgba(46,125,50,0.25);
+}
+.content-card h3{
+  margin:0 0 12px 0;
+  color:var(--accent-dark);
+  font-size:22px;
+  font-weight:700;
+}
+.content-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.8;
+}
+.content-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  margin:14px 0;
+  box-shadow:0 6px 18px rgba(46,125,50,0.12);
+}
+
+/* Footer */
+footer{
+  margin-top:70px;
+  padding:28px 0;
+  color:var(--muted);
+  font-size:14px;
+  border-top:1px solid rgba(0,0,0,0.05);
+  text-align:center;
+}
+footer strong{color:var(--accent-dark)}
+
+/* Back to Top */
+#backToTop{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  z-index:999;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  font-size:24px;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(46,125,50,0.3);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s ease;
+}
+#backToTop:hover{background:var(--accent-dark);transform:translateY(-4px);}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 21s7-8 20-9c0 0-6 4-8 7 0 0-4-2-12 2z" fill="#ffffff" opacity="0.12"/>
+          <path d="M6 18c3-2 6-6 11-8" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+          <path d="M12 3c0 1 2 4 4 5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Palm Story</h1>
+        <p>เรื่องราวของปาล์มน้ำมัน </p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="history.html" class="primary">ประวัติ</a></li>
+        <li><a href="planting.html">การปลูก</a></li>
+        <li><a href="processing.html">แปรรูป</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>ประวัติของปาล์มน้ำมัน</h2>
+    <p>จากป่าดิบชื้นในแอฟริกาสู่สวนสีเขียวในเอเชีย ปาล์มน้ำมันได้กลายเป็นพืชเศรษฐกิจสำคัญที่เชื่อมโยงผู้คนทั่วโลก และยังคงพัฒนาอย่างยั่งยืนในวันนี้</p>
+  </section>
+
+  <!-- Content Cards -->
+  <section class="cards">
+    <a href="origins.html" class="content-card-link">
+      <div class="content-card">
+        <h3>ต้นกำเนิด</h3>
+        <img src="ChatGPT Image Oct 29, 2025, 09_15_43 PM (1).png" alt="ต้นปาล์มแอฟริกา">
+        <p>ปาล์มน้ำมันมีถิ่นกำเนิดในแอฟริกาตะวันตก เช่น ไนจีเรียและคองโก เป็นพืชที่ใช้ประโยชน์มานานนับพันปี ทั้งในพิธีกรรมและอาหารพื้นบ้าน</p>
+      </div>
+    </a>
+
+    <a href="expansion.html" class="content-card-link">
+      <div class="content-card">
+        <h3>การขยายสู่เอเชีย</h3>
+        <img src="ChatGPT Image Oct 29, 2025, 08_49_21 PM (1).png" alt="สวนปาล์มเอเชีย">
+        <p>ปลายศตวรรษที่ 19 ปาล์มน้ำมันถูกนำมาปลูกในเอเชีย โดยเฉพาะมาเลเซียและอินโดนีเซีย ซึ่งต่อมากลายเป็นแหล่งผลิตหลักของโลก</p>
+      </div>
+    </a>
+
+    <a href="thailand.html" class="content-card-link">
+      <div class="content-card">
+        <h3>บทบาทในประเทศไทย</h3>
+        <img src="51554.jpg" alt="ปาล์มไทย">
+        <p>ประเทศไทยเริ่มปลูกปาล์มน้ำมันในภาคใต้ตั้งแต่ปี พ.ศ. 2500 ก่อนจะขยายเป็นพืชเศรษฐกิจสำคัญในช่วง พ.ศ. 2520–2530</p>
+      </div>
+    </a>
+
+    <a href="sustainable.html" class="content-card-link">
+      <div class="content-card">
+        <h3>การพัฒนาอย่างยั่งยืน</h3>
+        <img src="ChatGPT Image Oct 29, 2025, 09_25_43 PM.png" alt="ปาล์มยั่งยืน">
+        <p>ส่งเสริมการผลิตอย่างยั่งยืนด้วยการใช้เทคโนโลยีสีเขียว ปุ๋ยอินทรีย์ และการอนุรักษ์สิ่งแวดล้อมในทุกขั้นตอนของการผลิต</p>
+      </div>
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div><strong>Palm Story</strong> © 2025 Palm Story</div>
+  </footer>
+</div>
+
+<button id="backToTop" title="กลับขึ้นบน">↑</button>
+
+<script>
+// Back to Top
+const backToTop=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{
+  backToTop.style.display=window.scrollY>300?'flex':'none';
+});
+backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>
